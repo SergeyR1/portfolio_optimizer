@@ -1,0 +1,5 @@
+motor>=2.0.0
+sanic>=0.8.3
+requests>=2.20.1
+finam-export>=1.0.1
+pyportfolioopt>=0.4.3

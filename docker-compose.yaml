@@ -1,0 +1,24 @@
+version: '3.3'
+
+services:
+  po_nginx_proxy:
+    restart: always
+    build: ./container/nginx
+    ports:
+      - 9721:9771
+      - 9720:9770
+    depends_on:
+      - po_backend_server
+    networks:
+      - po_net
+
+  po_backend_server:
+    restart: always
+    build: ./code
+    environment:
+      LOG_LEVEL: WARNING #DEBUG, INFO, WARNING, ERROR, CRITICAL
+    networks:
+      - po_net
+
+networks:
+  po_net:
